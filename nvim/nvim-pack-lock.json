@@ -1,0 +1,28 @@
+{
+  "plugins": {
+    "lspconfig": {
+      "rev": "e5c61b0",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "mason": {
+      "rev": "ad7146a",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.pick": {
+      "rev": "bb764a5",
+      "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "oil": {
+      "rev": "919e155",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "oil.nvim": {
+      "rev": "7e1cd77",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "rose-pine": {
+      "rev": "72a04c4",
+      "src": "https://github.com/rose-pine/neovim"
+    }
+  }
+}
