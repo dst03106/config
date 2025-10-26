@@ -58,3 +58,6 @@ map(
 map('n', L '<space>', C 'Pick files', 'Find files')
 map('n', L 'r', C 'Pick buffers', 'Find buffers')
 map('n', L 'h', C 'Pick help', 'Find help')
+
+-- plugin:lazygit
+map('n', L'lg', C'LazyGit', 'Open LazyGit')
