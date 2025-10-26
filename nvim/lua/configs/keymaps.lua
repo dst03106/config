@@ -59,5 +59,26 @@ map('n', L '<space>', C 'Pick files', 'Find files')
 map('n', L 'r', C 'Pick buffers', 'Find buffers')
 map('n', L 'h', C 'Pick help', 'Find help')
 
+-- terminal
+local T = function(mode)
+	if mode == 'vertical' then
+		return function()
+			vim.cmd 'vert split | term'
+		end
+	elseif mode == 'horizontal' then
+		return function()
+			vim.cmd 'hor split | term'
+		end
+	else
+		return function()
+			vim.cmd('vert split | term ' .. mode)
+		end
+	end
+end
+map('n', L 'tv', T 'vertical', 'Open terminal vertically')
+map('n', L 'th', T 'horizontal', 'Open terminal horizontally')
+map('n', L 'ge', T 'gemini', 'Open terminal with Gemini CLI')
+map('t', 'tq', '<C-\\><C-n>', 'Change to normal mode in terminal')
+
 -- plugin:lazygit
 map('n', L'lg', C'LazyGit', 'Open LazyGit', { silent = true})
