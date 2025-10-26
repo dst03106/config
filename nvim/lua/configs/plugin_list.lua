@@ -1,7 +1,8 @@
 vim.pack.add({
 	{ name = 'gitsigns',      src = 'https://github.com/lewis6991/gitsigns.nvim'},
 
-	{ name = 'plenary',       src = 'https://github.com/nvim-lua/plenary.nvim' },
+	{ name = 'plenary',       src = 'https://github.com/nvim-lua/plenary.nvim' }, 
+	{ name = 'lazygit.nvim',  src = 'https://github.com/kdheepak/lazygit.nvim' }, -- lazy loading for lazygit
 	{ name = 'codecompanion', src = 'https://github.com/olimorris/codecompanion.nvim' },
 
 	{ name = 'oil',           src = 'https://github.com/stevearc/oil.nvim' },

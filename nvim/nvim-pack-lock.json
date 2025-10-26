@@ -12,6 +12,10 @@
       "rev": "32a701cb",
       "src": "https://github.com/jesseduffield/lazygit"
     },
+    "lazygit.nvim": {
+      "rev": "2305dee",
+      "src": "https://github.com/kdheepak/lazygit.nvim"
+    },
     "lspconfig": {
       "rev": "e5c61b0",
       "src": "https://github.com/neovim/nvim-lspconfig"

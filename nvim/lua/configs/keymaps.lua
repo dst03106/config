@@ -60,4 +60,4 @@ map('n', L 'r', C 'Pick buffers', 'Find buffers')
 map('n', L 'h', C 'Pick help', 'Find help')
 
 -- plugin:lazygit
-map('n', L'lg', C'LazyGit', 'Open LazyGit')
+map('n', L'lg', C'LazyGit', 'Open LazyGit', { silent = true})
