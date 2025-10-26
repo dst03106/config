@@ -1,5 +1,17 @@
 {
   "plugins": {
+    "codecompanion": {
+      "rev": "5c2ff68",
+      "src": "https://github.com/olimorris/codecompanion.nvim"
+    },
+    "gitsigns": {
+      "rev": "20ad441",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "lazygit": {
+      "rev": "32a701cb",
+      "src": "https://github.com/jesseduffield/lazygit"
+    },
     "lspconfig": {
       "rev": "e5c61b0",
       "src": "https://github.com/neovim/nvim-lspconfig"
@@ -19,6 +31,10 @@
     "oil.nvim": {
       "rev": "7e1cd77",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "rose-pine": {
       "rev": "72a04c4",
