@@ -43,6 +43,10 @@
     "rose-pine": {
       "rev": "72a04c4",
       "src": "https://github.com/rose-pine/neovim"
+    },
+    "smear-cursor": {
+      "rev": "abfa583",
+      "src": "https://github.com/sphamba/smear-cursor.nvim"
     }
   }
 }

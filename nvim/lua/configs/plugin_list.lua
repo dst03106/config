@@ -1,4 +1,6 @@
 vim.pack.add({
+	{ name = 'smear-cursor',  src = 'https://github.com/sphamba/smear-cursor.nvim'},
+
 	{ name = 'gitsigns',      src = 'https://github.com/lewis6991/gitsigns.nvim'},
 
 	{ name = 'plenary',       src = 'https://github.com/nvim-lua/plenary.nvim' }, 
@@ -15,6 +17,7 @@ vim.pack.add({
 
 	{ name = 'mini.pick',     src = 'https://github.com/nvim-mini/mini.pick' },
 })
+require('smear_cursor').setup({})
 require('gitsigns').setup({})
 require('codecompanion').setup({
 	adapters = {
