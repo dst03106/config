@@ -1,4 +1,6 @@
 vim.pack.add({
+	{ name = 'mini.starter',  src = 'https://github.com/nvim-mini/mini.starter'},
+
 	{ name = 'smear-cursor',  src = 'https://github.com/sphamba/smear-cursor.nvim'},
 
 	{ name = 'gitsigns',      src = 'https://github.com/lewis6991/gitsigns.nvim'},
@@ -17,6 +19,7 @@ vim.pack.add({
 
 	{ name = 'mini.pick',     src = 'https://github.com/nvim-mini/mini.pick' },
 })
+require('mini.starter').setup({header = '🦒'})
 require('smear_cursor').setup({})
 require('gitsigns').setup({})
 require('codecompanion').setup({

@@ -28,6 +28,10 @@
       "rev": "bb764a5",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
+    "mini.starter": {
+      "rev": "b43df0b",
+      "src": "https://github.com/nvim-mini/mini.starter"
+    },
     "oil": {
       "rev": "919e155",
       "src": "https://github.com/stevearc/oil.nvim"
