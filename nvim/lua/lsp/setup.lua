@@ -1,3 +1,5 @@
+vim.lsp.enable({'lua_ls', 'gopls', 'ts_ls'})
+
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('auto_completion', {}),
 	callback = function(args)
