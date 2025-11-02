@@ -32,4 +32,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
+vim.api.nvim_create_autocmd('DirChanged', {
+	pattern = '*',
+	callback = function()
+		print('Current directory changed to: ' .. vim.fn.getcwd())
+	end,
+})
