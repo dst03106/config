@@ -13,8 +13,10 @@ vim.pack.add({
 
 	{ name = 'rose-pine',     src = 'https://github.com/rose-pine/neovim' },
 
+	-- Mason helps with installing and managing them.
 	{ name = 'mason',         src = 'https://github.com/mason-org/mason.nvim' },
-
+	
+	-- lspconfig automatically fills in options and provides helpful guidance. 
 	{ name = 'lspconfig',     src = 'https://github.com/neovim/nvim-lspconfig' },
 
 	{ name = 'mini.pick',     src = 'https://github.com/nvim-mini/mini.pick' },
