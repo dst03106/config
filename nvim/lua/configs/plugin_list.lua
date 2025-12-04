@@ -19,7 +19,8 @@ vim.pack.add({
 	-- lspconfig automatically fills in options and provides helpful guidance. 
 	{ name = 'lspconfig',     src = 'https://github.com/neovim/nvim-lspconfig' },
 
-	{ name = 'mini.pick',     src = 'https://github.com/nvim-mini/mini.pick' },
+	{ name = 'fzf',						src = 'https://github.com/junegunn/fzf' },
+	{ name = 'fzf-lua',				src = 'https://github.com/ibhagwan/fzf-lua'},
 })
 require('mini.starter').setup({header = '🦒'})
 require('smear_cursor').setup({})
@@ -53,7 +54,6 @@ require('codecompanion').setup({
 })
 require('rose-pine').setup({})
 require('mason').setup({})
-require('mini.pick').setup({})
 require('oil').setup {
 	lsp_file_methods = {
 		enabled = true,
@@ -74,3 +74,4 @@ require('oil').setup {
 	},
 }
 vim.cmd('colorscheme rose-pine')
+require('fzf-lua').setup({})

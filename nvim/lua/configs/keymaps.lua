@@ -31,6 +31,8 @@ map('n', L 'cr', C 'lua vim.lsp.buf.rename()', 'Rename symbol')
 map('n', L 'ca', C 'lua vim.lsp.buf.code_action()', 'Code action')
 map('n', 'gd', C 'lua vim.lsp.buf.definition()', 'Go to definition')
 map('n', 'K', C 'lua vim.lsp.buf.hover()', 'Show type and docs of the symbol')
+map('n', 'gr', C 'lua vim.lsp.buf.references()', 'Find references')
+map('n', L 'cq', C 'cclose', 'Close Quickfix')
 map('n', 'gl', C 'lua vim.diagnostic.open_float()', 'Show diagnostics')
 map('n', 'dn', C 'lua vim.diagnostic.jump({ count = 1, float = true })', 'Next diagnostic')
 map('n', 'dp', C 'lua vim.diagnostic.jump({ count = -1, float = true })', 'Previous diagnostic')
@@ -47,18 +49,6 @@ map('n', '<C-w><left>', '<C-w><', 'Decrease pane width')
 map('n', '<C-w><right>', '<C-w>>', 'Increase pane width')
 map('n', '<C-w><up>', '<C-w>+', 'Increase pane height')
 map('n', '<C-w><down>', '<C-w>-', 'Decrease pane height')
-
--- picker
-map('n', L 'g', C 'Pick grep_live', 'Grep live')
-map(
-  { 'n', 'v' },
-  L 'sw',
-  C 'lua require("mini.pick").builtin.grep { pattern = vim.fn.expand "<cword>" }',
-  'Search word'
-)
-map('n', L '<space>', C 'Pick files', 'Find files')
-map('n', L 'r', C 'Pick buffers', 'Find buffers')
-map('n', L 'h', C 'Pick help', 'Find help')
 
 -- terminal
 local T = function(mode)
@@ -84,4 +74,9 @@ map('n', L 'td', C 'set noautochdir', 'Detach Terminal from Current Buffer')
 map('t', 'tq', '<C-\\><C-n>', 'Change to normal mode in terminal')
 
 -- plugin:lazygit
-map('n', L'lg', C'LazyGit', 'Open LazyGit', { silent = true})
+map('n', L 'lg', C 'LazyGit', 'Open LazyGit', { silent = true})
+
+-- plugin:fzf-lua
+map('n', L '<space>', C 'FzfLua git_files', 'Find files')
+map('n', L 'r', C 'FzfLua oldfiles', 'Find recent files')
+map('n', L 'fb', C 'FzfLua builtin', 'Show FzfLua bultin')
