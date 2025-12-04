@@ -9,6 +9,17 @@ local map = function(mode, lhs, rhs, desc, opts)
   opts.desc = desc
   vim.keymap.set(mode, lhs, rhs, opts)
 end
+local function get_current_buffer_git_root()
+	local file = vim.api.nvim_buf_get_name(0)
+	if file == "" then
+		return nil
+	end
+
+	local dir = vim.fn.fnamemodify(file, ":h")
+	local cmd = "git -C " .. vim.fn.shellescape(dir) .. " rev-parse --show-toplevel"
+	local root = vim.fn.systemlist(cmd)[1]
+	return root
+end
 
 map('n', L'w', C'write', 'Write buffer')
 map('n', L'q', C'quit', 'Quit buffer')
@@ -73,23 +84,14 @@ map(
 	'n',
 	L 'ta',
 	function ()
-		local file = vim.api.nvim_buf_get_name(0)
-		if file == "" then
-			return nil
+		local root = get_current_buffer_git_root()
+		if root then
+			vim.cmd("cd " .. root)
+			vim.notify("Moved to Git root: " .. root)
+			return root
+		else
+			vim.notify("No git root found for current buffer", vim.log.levels.WARN)
 		end
-		local dir = vim.fn.fnamemodify(file, ":h")
-		local cmd = "git -C " .. vim.fn.shellescape(dir) .. " rev-parse --show-toplevel"
-		local root = vim.fn.systemlist(cmd)[1]
-
-		if vim.v.shell_error ~= 0 or not root or root == "" then
-			vim.notify("No git root found", vim.log.levels.WARN)
-			return nil
-		end
-
-		vim.cmd("cd " .. root)
-		vim.notify("Moved to Git root: " .. root)
-
-		return root
 	end
 	,
 	'Moved to Git root'
@@ -100,6 +102,18 @@ map('t', 'tq', '<C-\\><C-n>', 'Change to normal mode in terminal')
 map('n', L 'lg', C 'LazyGit', 'Open LazyGit', { silent = true})
 
 -- plugin:fzf-lua
-map('n', L '<space>', C 'FzfLua git_files', 'Find files')
+map(
+	'n',
+	L '<space>',
+	function ()
+		local root = get_current_buffer_git_root()
+		if root and root ~= '' then
+			require('fzf-lua').files({ cwd = root })
+		else
+			require('fzf-lua').files()
+		end
+	end,
+	'Find files (git root or cwd)'
+)
 map('n', L 'r', C 'FzfLua oldfiles', 'Find recent files')
 map('n', L 'fb', C 'FzfLua builtin', 'Show FzfLua bultin')
