@@ -69,8 +69,31 @@ end
 map('n', L 'tv', T 'vertical', 'Open terminal vertically')
 map('n', L 'th', T 'horizontal', 'Open terminal horizontally')
 map('n', L 'ge', T 'gemini', 'Open terminal with Gemini CLI')
-map('n', L 'ta', C 'set autochdir', 'Attach Terminal to Current Buffer')
-map('n', L 'td', C 'set noautochdir', 'Detach Terminal from Current Buffer')
+map(
+	'n',
+	L 'ta',
+	function ()
+		local file = vim.api.nvim_buf_get_name(0)
+		if file == "" then
+			return nil
+		end
+		local dir = vim.fn.fnamemodify(file, ":h")
+		local cmd = "git -C " .. vim.fn.shellescape(dir) .. " rev-parse --show-toplevel"
+		local root = vim.fn.systemlist(cmd)[1]
+
+		if vim.v.shell_error ~= 0 or not root or root == "" then
+			vim.notify("No git root found", vim.log.levels.WARN)
+			return nil
+		end
+
+		vim.cmd("cd " .. root)
+		vim.notify("Moved to Git root: " .. root)
+
+		return root
+	end
+	,
+	'Moved to Git root'
+)
 map('t', 'tq', '<C-\\><C-n>', 'Change to normal mode in terminal')
 
 -- plugin:lazygit
