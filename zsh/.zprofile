@@ -23,3 +23,7 @@ export PATH="$PATH:$JAVA_HOME/bin"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH="$PATH:$HOME/go/bin"
+
+# Opencode 
+ln -shf $HOME/config/opencode/plugin $HOME/.config/opencode/plugin
+ln -shf $HOME/config/opencode/opencode.json $HOME/.config/opencode/opencode.json

@@ -79,7 +79,6 @@ local T = function(mode)
 end
 map('n', L 'tv', T 'vertical', 'Open terminal vertically')
 map('n', L 'th', T 'horizontal', 'Open terminal horizontally')
-map('n', L 'ge', T 'gemini', 'Open terminal with Gemini CLI')
 map(
 	'n',
 	L 'ta',
