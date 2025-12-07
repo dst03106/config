@@ -32,7 +32,8 @@ map('n', '<C-j>', '<C-d>zz', 'Scroll down and center')
 -- config files
 map({ 'n', 'v', 'x' }, L 'v', C 'e $MYVIMRC', 'Edit nvim config')
 map({ 'n', 'v', 'x' }, L 'z', C 'e ~/.zshrc', 'Edit zshrc')
-map({ 'n', 'v', 'x' }, L 'wz', C 'e ~/.config/wezterm/wezterm.lua', 'Edit wezterm config')
+-- Temporarily commented out for w keymap performance
+-- map({ 'n', 'v', 'x' }, L 'wz', C 'e ~/.config/wezterm/wezterm.lua', 'Edit wezterm config')
 map({ 'n', 'v', 'x' }, L 'o', C 'source $MYVIMRC', 'Source ' .. vim.fn.expand '$MYVIMRC')
 map({ 'n', 'v', 'x' }, L 'O', C 'restart', 'Restart vim.')
 
