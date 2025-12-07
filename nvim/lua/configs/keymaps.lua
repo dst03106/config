@@ -1,13 +1,13 @@
 local L = function(key)
-  return '<leader>' .. key
+	return '<leader>' .. key
 end
 local C = function(cmd)
-  return '<Cmd>' .. cmd .. '<CR>'
+	return '<Cmd>' .. cmd .. '<CR>'
 end
 local map = function(mode, lhs, rhs, desc, opts)
-  opts = opts or {}
-  opts.desc = desc
-  vim.keymap.set(mode, lhs, rhs, opts)
+	opts = opts or {}
+	opts.desc = desc
+	vim.keymap.set(mode, lhs, rhs, opts)
 end
 local function get_current_buffer_git_root()
 	local file = vim.api.nvim_buf_get_name(0)
@@ -21,9 +21,9 @@ local function get_current_buffer_git_root()
 	return root
 end
 
-map('n', L'w', C'write', 'Write buffer')
-map('n', L'q', C'quit', 'Quit buffer')
-map('n', L'e', C'Oil', 'Open file explorer')
+map('n', L 'w', C 'write', 'Write buffer')
+map('n', L 'q', C 'quit', 'Quit buffer')
+map('n', L 'e', C 'Oil', 'Open file explorer')
 
 -- navigation
 map('n', '<C-k>', '<C-u>zz', 'Scroll up and center')
@@ -83,7 +83,7 @@ map('n', L 'ge', T 'gemini', 'Open terminal with Gemini CLI')
 map(
 	'n',
 	L 'ta',
-	function ()
+	function()
 		local root = get_current_buffer_git_root()
 		if root then
 			vim.cmd("cd " .. root)
@@ -99,13 +99,14 @@ map(
 map('t', 'tq', '<C-\\><C-n>', 'Change to normal mode in terminal')
 
 -- plugin:lazygit
-map('n', L 'lg', C 'LazyGit', 'Open LazyGit', { silent = true})
+map('n', L 'lg', C 'LazyGit', 'Open LazyGit', { silent = true })
 
 -- plugin:fzf-lua
+map('n', L '<space>', C 'FzfLua buffers', 'Find buffers')
 map(
 	'n',
-	L '<space>',
-	function ()
+	L 'f',
+	function()
 		local root = get_current_buffer_git_root()
 		if root and root ~= '' then
 			require('fzf-lua').files({ cwd = root })
@@ -116,4 +117,4 @@ map(
 	'Find files (git root or cwd)'
 )
 map('n', L 'r', C 'FzfLua oldfiles', 'Find recent files')
-map('n', L 'fb', C 'FzfLua builtin', 'Show FzfLua bultin')
+map('n', L 'b', C 'FzfLua builtin', 'Show FzfLua bultin')
