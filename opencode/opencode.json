@@ -6,5 +6,9 @@
 		"messages_page_up": "alt+k",
 		"messages_page_down": "alt+j",
 		"command_list": "ctrl+p"
+	},
+	"permission": {
+		"edit": "ask",
+		"bash": "ask"
 	}
 }
