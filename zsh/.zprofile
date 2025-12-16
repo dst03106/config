@@ -15,6 +15,9 @@ case ":$PATH:" in
   *) export PATH="$PATH:$PNPM_HOME" ;;
 esac
 
+# asdf
+export PATH="$PATH:$HOME/.asdf/shims"
+
 # java
 export JAVA_HOME=$(/usr/libexec/java_home -v 21)
 export PATH="$PATH:$JAVA_HOME/bin"
