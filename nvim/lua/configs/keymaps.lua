@@ -16,9 +16,12 @@ local function get_current_buffer_git_root()
 	end
 
 	local dir = vim.fn.fnamemodify(file, ":h")
-	local cmd = "git -C " .. vim.fn.shellescape(dir) .. " rev-parse --show-toplevel"
-	local root = vim.fn.systemlist(cmd)[1]
-	return root
+	local cmd = "git -C " .. vim.fn.shellescape(dir) .. " rev-parse --show-toplevel 2>/dev/null"
+	local result = vim.fn.systemlist(cmd)
+	if vim.v.shell_error == 0 and result and #result > 0 then
+		return result[1]
+	end
+	return nil
 end
 
 map('n', L 'w', C 'write', 'Write buffer')
@@ -84,17 +87,27 @@ map(
 	'n',
 	L 'ta',
 	function()
+		if vim.bo.filetype == "oil" then
+			local dir = require('oil').get_current_dir()
+			vim.cmd("cd " .. dir)
+			vim.notify("Moved to current dir: " .. dir)
+			return dir
+		end
+
 		local root = get_current_buffer_git_root()
 		if root then
 			vim.cmd("cd " .. root)
 			vim.notify("Moved to Git root: " .. root)
 			return root
-		else
-			vim.notify("No git root found for current buffer", vim.log.levels.WARN)
 		end
-	end
-	,
-	'Moved to Git root'
+
+		local current_dir = vim.fn.expand('%:p:h')
+		if current_dir ~= "" then
+			vim.cmd("cd " .. current_dir)
+			vim.notify("Moved to current dir: " .. current_dir)
+		end
+	end,
+	'Change working directory'
 )
 map('t', 'tq', '<C-\\><C-n>', 'Change to normal mode in terminal')
 
