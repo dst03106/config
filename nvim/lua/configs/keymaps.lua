@@ -131,3 +131,6 @@ map(
 )
 map('n', L 'r', C 'FzfLua oldfiles', 'Find recent files')
 map('n', L 'b', C 'FzfLua builtin', 'Show FzfLua bultin')
+
+-- plugin:opencode
+map({ 'n', 't' }, '<C-,>', C "lua require('opencode').toggle()", 'Toggle opencode')

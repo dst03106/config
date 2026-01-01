@@ -48,6 +48,10 @@
       "rev": "7e1cd77",
       "src": "https://github.com/stevearc/oil.nvim"
     },
+    "opencode": {
+      "rev": "dfca5bb",
+      "src": "https://github.com/NickvanDyke/opencode.nvim"
+    },
     "plenary": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"

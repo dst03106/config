@@ -21,6 +21,8 @@ vim.pack.add({
 
 	{ name = 'fzf',						src = 'https://github.com/junegunn/fzf' },
 	{ name = 'fzf-lua',				src = 'https://github.com/ibhagwan/fzf-lua'},
+  
+	{ name = 'opencode', src = 'https://github.com/NickvanDyke/opencode.nvim' },
 })
 require('mini.starter').setup({header = '🦒'})
 require('smear_cursor').setup({})
@@ -75,3 +77,13 @@ require('oil').setup {
 }
 vim.cmd('colorscheme rose-pine')
 require('fzf-lua').setup({})
+-- opencode
+vim.g.opencode_opts = {
+  provider = {
+    enabled = "terminal",
+    terminal = {
+			split = 'left',
+			width = math.floor(vim.o.columns * 0.40),
+		}
+  },
+}
