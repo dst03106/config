@@ -87,6 +87,14 @@ vim.g.opencode_opts = {
 			width = math.floor(vim.o.columns * 0.40),
 		}
   },
+	events = {
+    enabled = true,
+    reload = true,
+    permissions = {
+      enabled = false,
+      idle_delay_ms = 1000,
+    },
+  },
 }
 require('snacks').setup {
       input = { enabled = true },
