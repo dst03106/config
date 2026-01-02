@@ -22,6 +22,7 @@ vim.pack.add({
 	{ name = 'fzf',						src = 'https://github.com/junegunn/fzf' },
 	{ name = 'fzf-lua',				src = 'https://github.com/ibhagwan/fzf-lua'},
   
+	{ name = 'snack', src = 'https://github.com/folke/snacks.nvim' },
 	{ name = 'opencode', src = 'https://github.com/NickvanDyke/opencode.nvim' },
 })
 require('mini.starter').setup({header = '🦒'})
@@ -86,4 +87,7 @@ vim.g.opencode_opts = {
 			width = math.floor(vim.o.columns * 0.40),
 		}
   },
+}
+require('snacks').setup {
+      input = { enabled = true },
 }

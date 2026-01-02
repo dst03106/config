@@ -63,6 +63,10 @@
     "smear-cursor": {
       "rev": "abfa583",
       "src": "https://github.com/sphamba/smear-cursor.nvim"
+    },
+    "snack": {
+      "rev": "fe7cfe9",
+      "src": "https://github.com/folke/snacks.nvim"
     }
   }
 }
