@@ -81,11 +81,13 @@ require('fzf-lua').setup({})
 -- opencode
 vim.g.opencode_opts = {
   provider = {
-    enabled = "terminal",
-    terminal = {
-			split = 'left',
-			width = math.floor(vim.o.columns * 0.40),
-		}
+    enabled = "snacks",
+		snacks = {
+			win = {
+				position = 'left',
+				width = 0.4,
+			},
+		},
   },
 	events = {
     enabled = true,
