@@ -7,7 +7,6 @@ vim.pack.add({
 
 	{ name = 'plenary',       src = 'https://github.com/nvim-lua/plenary.nvim' }, 
 	{ name = 'lazygit.nvim',  src = 'https://github.com/kdheepak/lazygit.nvim' }, -- lazy loading for lazygit
-	{ name = 'codecompanion', src = 'https://github.com/olimorris/codecompanion.nvim' },
 
 	{ name = 'oil',           src = 'https://github.com/stevearc/oil.nvim' },
 
@@ -28,33 +27,6 @@ vim.pack.add({
 require('mini.starter').setup({header = '🦒'})
 require('smear_cursor').setup({})
 require('gitsigns').setup({})
-require('codecompanion').setup({
-	adapters = {
-		acp = {
-			gemini_cli = function()
-				return require('codecompanion.adapters').extend('gemini_cli', {
-					defaults = {
-						auth_method = 'gemini-api-key',
-					},
-					env = {
-						GEMINI_API_KEY = os.getenv 'GEMINI_API_KEY',
-					},
-				})
-			end,
-		}
-	},
-	strategies = {
-		chat = {
-			adapter = 'gemini_cli',
-		},
-		cmd = {
-			adapter = 'gemini_cli',
-		}
-	},
-	opts = {
-		log_level = 'TRACE',
-	}
-})
 require('rose-pine').setup({})
 require('mason').setup({})
 require('oil').setup {
