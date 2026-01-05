@@ -49,7 +49,7 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "opencode": {
-      "rev": "dfca5bb",
+      "rev": "e235528",
       "src": "https://github.com/NickvanDyke/opencode.nvim"
     },
     "plenary": {
