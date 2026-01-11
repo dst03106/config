@@ -30,3 +30,6 @@ export PATH="$PATH:$HOME/go/bin"
 # Opencode 
 ln -shf $HOME/config/opencode/plugin $HOME/.config/opencode/plugin
 ln -shf $HOME/config/opencode/opencode.json $HOME/.config/opencode/opencode.json
+
+# Cursor agent
+export PATH="$HOME/.local/bin:$PATH"
