@@ -67,6 +67,10 @@
     "snack": {
       "rev": "fe7cfe9",
       "src": "https://github.com/folke/snacks.nvim"
+    },
+    "winsep": {
+      "rev": "cc514e6",
+      "src": "https://github.com/nvim-zh/colorful-winsep.nvim"
     }
   }
 }
