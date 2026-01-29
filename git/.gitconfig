@@ -1,0 +1,7 @@
+[user]
+        name = dst03106
+        email = dstdbsgml@gmail.com
+[core]
+        autocrlf = input
+[help]
+        autocorrect = prompt
